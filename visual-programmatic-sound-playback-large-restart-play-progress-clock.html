@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .hiddenAnswer{
+        visibility: hidden;
+    }
+</style>
+<title>visual programmatic sound playback large restart play progress clock</title>
+<link rel="stylesheet" type="text/css" href="abcjs-audio.css"><script src="abcjs-basic.js" type="text/javascript"></script>
+<script src="dodecafonico.js"></script>
+</head>
+<body onload="load()">
+<header>
+<h1>Gerador de ditados dodecafônicos</h1>
+</header>
+<div class="container">
+<div class="controls">
+    <div>Ascendentes: 
+        <input id="2mU" type="checkbox" class="interval-check" value="1" checked>
+        <label for="2mU">2m</label>
+        <input id="2MU" type="checkbox" class="interval-check" value="2" checked>
+        <label for="2MU">2M</label>
+        <input id="3mU" type="checkbox" class="interval-check" value="3" checked>
+        <label for="3mU">3m</label>
+        <input id="3MU" type="checkbox" class="interval-check" value="4" checked>
+        <label for="3MU">3M</label>
+        <input id="4jU" type="checkbox" class="interval-check" value="5">
+        <label for="4JU">4J</label>
+        <input id="4+U" type="checkbox" class="interval-check" value="6">
+        <label for="4+U">4+</label>
+        <input id="5JU" type="checkbox" class="interval-check" value="7">
+        <label for="5JU">5J</label>
+        <input id="6mU" type="checkbox" class="interval-check" value="8">
+        <label for="6mU">6m</label>
+        <input id="6MU" type="checkbox" class="interval-check" value="9">
+        <label for="6MU">6M</label>
+        <input id="7mU" type="checkbox" class="interval-check" value="10">
+        <label for="7mU">7m</label>
+        <input id="7MU" type="checkbox" class="interval-check" value="11">
+        <label for="7MU">7M</label>
+        <input id="8JU" type="checkbox" class="interval-check" value="12">
+        <label for="8JU">8J</label>
+    </div>
+    <div>Descendentes: 
+        <input id="2mB" type="checkbox" class="interval-check" value="-1" checked>
+        <label for="2mB">2m</label>
+        <input id="2mB" type="checkbox" class="interval-check" value="-2" checked>
+        <label for="2MB">2M</label>
+        <input id="3mB" type="checkbox" class="interval-check" value="-3" checked>
+        <label for="3mB">3m</label>
+        <input id="3MB" type="checkbox" class="interval-check" value="-4" checked>
+        <label for="3MB">3M</label>
+        <input id="4jB" type="checkbox" class="interval-check" value="-5">
+        <label for="4JB">4J</label>
+        <input id="4+B" type="checkbox" class="interval-check" value="-6">
+        <label for="4+B">4+</label>
+        <input id="5JB" type="checkbox" class="interval-check" value="-7">
+        <label for="5JB">5J</label>
+        <input id="6mB" type="checkbox" class="interval-check" value="-8">
+        <label for="6mB">6m</label>
+        <input id="6MB" type="checkbox" class="interval-check" value="-9">
+        <label for="6MB">6M</label>
+        <input id="7mB" type="checkbox" class="interval-check" value="-10">
+        <label for="7mB">7m</label>
+        <input id="7MB" type="checkbox" class="interval-check" value="-11">
+        <label for="7MB">7M</label>
+        <input id="8JB" type="checkbox" class="interval-check" value="-12">
+        <label for="8JB">8J</label>
+    </div>
+    <label for="noteCount">Quantidade de notas</label>
+    <input type="range" id="noteCount" name="noteCount" min="3" max="12" step="1" start="12" oninput="this.nextElementSibling.value = this.value" />
+    <input type="number" id="displayNote" readonly>
+</div>
+
+<div id="answer" class="hiddenAnswer"></div>
+<div hidden id="paper"></div>
+<div id="audio" class="abcjs-large"></div>
+<button class="activate-audio">Activate Audio</button>
+<button class="generate" OnClick="generate()">Generate</button>
+<button class="hideShowAnswer" onClick="hideShowAnswer()">Hide/Show answer</button>
+<button class="nextNote" OnClick="nextNote()">Próxima nota</button>
+</div>
+</body>
+</html>
